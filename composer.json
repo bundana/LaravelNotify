@@ -25,13 +25,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bundana\\LaravelSmsNotify\\LaravelSmsNotifyServiceProvider"
+                "Bundana\\LaravelSmsNotify\\SmsServiceProvider"
             ]
         }
     },
     "minimum-stability": "beta",
     "prefer-stable": true,
-    "version": "1.0.0-beta.5",
+    "version": "1.0.0-beta.6",
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
