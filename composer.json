@@ -1,46 +1,33 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
-    "keywords": [
-        ":vendor_name",
-        ":package_slug"
-    ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "name": "bundana/laravel-sms-notify",
+    "description": "A Laravel package for sending SMS notifications using various providers",
+    "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": ":author_name",
-            "email": "author@domain.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^8.4"
-    },
-    "require-dev": {
-        :require_dev_testing,
-        :require_dev_codestyle,
-        "spatie/ray": "^1.28"
-    },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Bundana\\LaravelSmsNotify\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Tests\\": "tests/"
         }
     },
-    "scripts": {
-        :scripts_testing,
-        :scripts_codestyle
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/bus": "^12.18",
+        "illuminate/container": "^12.18",
+        "illuminate/http": "^12.18",
+        "illuminate/queue": "^12.18"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.0"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            :plugins_testing,
-            "phpstan/extension-installer": true
+            "pestphp/pest-plugin": true
         }
     },
     "minimum-stability": "dev",
