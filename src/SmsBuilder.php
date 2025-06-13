@@ -63,11 +63,16 @@ class SmsBuilder
     /**
      * Set the SMS provider.
      *
+     * @param string|SmsProviders $provider
      * @return $this
      */
-    public function provider(string $provider): self
+    public function provider(string|SmsProviders $provider): self
     {
-        $this->message->provider(SmsProviders::from($provider));
+        if (is_string($provider)) {
+            $provider = SmsProviders::tryFrom(strtolower($provider)) ?? SmsProviders::MNOTIFY;
+        }
+
+        $this->message->provider($provider);
 
         return $this;
     }
