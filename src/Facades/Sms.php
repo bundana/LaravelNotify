@@ -2,8 +2,8 @@
 
 namespace Bundana\LaravelSmsNotify\Facades;
 
-use Illuminate\Support\Facades\Facade;
 use Bundana\LaravelSmsNotify\SmsBuilder;
+use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static SmsBuilder to(string $to)
@@ -20,8 +20,6 @@ class Sms extends Facade
 {
     /**
      * Get the registered name of the component.
-     *
-     * @return string
      */
     protected static function getFacadeAccessor(): string
     {

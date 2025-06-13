@@ -8,22 +8,17 @@ class MnotifyContactProvider
 {
     /**
      * The HTTP client instance.
-     *
-     * @var Client
      */
     protected Client $client;
 
     /**
      * The provider configuration.
-     *
-     * @var array
      */
     protected array $config;
 
     /**
      * Create a new Mnotify Contact provider instance.
      *
-     * @param array $config
      * @return void
      */
     public function __construct(array $config)
@@ -39,11 +34,10 @@ class MnotifyContactProvider
 
     /**
      * Create a new contact
-     * 
-     * @param string $phone Contact phone number
-     * @param string|null $name Contact name
-     * @param string|null $email Contact email
-     * @return array
+     *
+     * @param  string  $phone  Contact phone number
+     * @param  string|null  $name  Contact name
+     * @param  string|null  $email  Contact email
      */
     public function createContact(string $phone, ?string $name = null, ?string $email = null): array
     {
@@ -61,9 +55,8 @@ class MnotifyContactProvider
 
     /**
      * Create multiple contacts
-     * 
-     * @param array $contacts Array of contacts with phone, name, and email
-     * @return array
+     *
+     * @param  array  $contacts  Array of contacts with phone, name, and email
      */
     public function createContacts(array $contacts): array
     {
@@ -79,8 +72,6 @@ class MnotifyContactProvider
 
     /**
      * Get all contacts
-     * 
-     * @return array
      */
     public function getContacts(): array
     {
@@ -95,9 +86,6 @@ class MnotifyContactProvider
 
     /**
      * Get a specific contact by ID
-     * 
-     * @param string $contactId
-     * @return array
      */
     public function getContact(string $contactId): array
     {
@@ -112,12 +100,6 @@ class MnotifyContactProvider
 
     /**
      * Update a contact
-     * 
-     * @param string $contactId
-     * @param string $phone
-     * @param string|null $name
-     * @param string|null $email
-     * @return self
      */
     public function updateContact(string $contactId, string $phone, ?string $name = null, ?string $email = null): self
     {
@@ -135,9 +117,6 @@ class MnotifyContactProvider
 
     /**
      * Delete a contact
-     * 
-     * @param string $contactId
-     * @return self
      */
     public function deleteContact(string $contactId): self
     {
@@ -152,9 +131,8 @@ class MnotifyContactProvider
 
     /**
      * Delete multiple contacts
-     * 
-     * @param array $contactIds Array of contact IDs to delete
-     * @return self
+     *
+     * @param  array  $contactIds  Array of contact IDs to delete
      */
     public function deleteContacts(array $contactIds): self
     {
@@ -170,9 +148,8 @@ class MnotifyContactProvider
 
     /**
      * Search contacts
-     * 
-     * @param string $query Search query
-     * @return array
+     *
+     * @param  string  $query  Search query
      */
     public function searchContacts(string $query): array
     {

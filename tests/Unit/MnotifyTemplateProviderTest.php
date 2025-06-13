@@ -10,10 +10,10 @@ beforeEach(function () {
     $this->config = [
         'api_key' => '0WCbuaXMvcJibCMCniFufvKYK',
         'base_url' => 'https://api.mnotify.com/api/',
-        'sender_id' => 'Pollvite'
+        'sender_id' => 'Pollvite',
     ];
 
-    $this->mockHandler = new MockHandler();
+    $this->mockHandler = new MockHandler;
     $handlerStack = HandlerStack::create($this->mockHandler);
     $client = new Client(['handler' => $handlerStack]);
 
@@ -30,8 +30,8 @@ test('it can create a template', function () {
             'data' => [
                 'id' => '123456789',
                 'name' => 'Welcome Template',
-                'content' => 'Hello {{name}}!'
-            ]
+                'content' => 'Hello {{name}}!',
+            ],
         ]))
     );
 
@@ -59,14 +59,14 @@ test('it can get all templates', function () {
                 [
                     'id' => '123456789',
                     'name' => 'Welcome Template',
-                    'content' => 'Hello {{name}}!'
+                    'content' => 'Hello {{name}}!',
                 ],
                 [
                     'id' => '987654321',
                     'name' => 'Reminder Template',
-                    'content' => 'Don\'t forget {{task}}!'
-                ]
-            ]
+                    'content' => 'Don\'t forget {{task}}!',
+                ],
+            ],
         ]))
     );
 
@@ -89,7 +89,7 @@ test('it can update a template', function () {
         new Response(200, [], json_encode([
             'status' => 'success',
             'code' => 2000,
-            'message' => 'Template updated successfully'
+            'message' => 'Template updated successfully',
         ]))
     );
 
@@ -103,7 +103,7 @@ test('it can delete a template', function () {
         new Response(200, [], json_encode([
             'status' => 'success',
             'code' => 2000,
-            'message' => 'Template deleted successfully'
+            'message' => 'Template deleted successfully',
         ]))
     );
 

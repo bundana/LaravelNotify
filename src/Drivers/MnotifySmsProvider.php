@@ -2,24 +2,20 @@
 
 namespace Bundana\LaravelSmsNotify\Drivers;
 
+use Bundana\LaravelSmsNotify\Contracts\SmsProviderInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
-use Bundana\LaravelSmsNotify\Contracts\SmsProviderInterface;
 
 class MnotifySmsProvider implements SmsProviderInterface
 {
     /**
      * The HTTP client instance.
-     *
-     * @var Client
      */
     protected Client $client;
 
     /**
      * The provider configuration.
-     *
-     * @var array
      */
     protected array $config;
 
@@ -27,7 +23,7 @@ class MnotifySmsProvider implements SmsProviderInterface
      * Create a new Mnotify SMS provider instance.
      *
      * @link https://readthedocs.mnotify.com/#tag/SMS/operation/campaign/sms_quick
-     * @param array $config
+     *
      * @return void
      */
     public function __construct(array $config)
@@ -44,23 +40,16 @@ class MnotifySmsProvider implements SmsProviderInterface
 
     /**
      * Set the HTTP client instance.
-     *
-     * @param Client $client
-     * @return self
      */
     public function setClient(Client $client): self
     {
         $this->client = $client;
+
         return $this;
     }
 
     /**
      * Send a quick SMS message.
-     *
-     * @param string $to
-     * @param string $message
-     * @param string|null $from
-     * @return array
      */
     public function send(string $to, string $message, ?string $from = null): array
     {
@@ -77,14 +66,16 @@ class MnotifySmsProvider implements SmsProviderInterface
             return json_decode($response->getBody()->getContents(), true);
         } catch (ClientException $e) {
             $response = $e->getResponse();
+
             return json_decode($response->getBody()->getContents(), true);
         } catch (ServerException $e) {
             $response = $e->getResponse();
+
             return json_decode($response->getBody()->getContents(), true);
         }
     }
 
-    // /** 
+    // /**
     //  * SendGroup Bulk SMS
     //  * Send SMS to clients/contacts using groups you created earlier which has contacts in them
     //  * @link https://readthedocs.mnotify.com/#tag/SMS/operation/campaign/sms_group
@@ -149,7 +140,7 @@ class MnotifySmsProvider implements SmsProviderInterface
 
     // /**
     //  * Send SMS using a template
-    //  * 
+    //  *
     //  * @param string $to
     //  * @param string $templateId
     //  * @param array $variables Template variables to replace
@@ -174,7 +165,7 @@ class MnotifySmsProvider implements SmsProviderInterface
 
     // /**
     //  * Send bulk SMS using a template
-    //  * 
+    //  *
     //  * @param array $recipients
     //  * @param string $templateId
     //  * @param array $variables Template variables to replace
@@ -199,8 +190,6 @@ class MnotifySmsProvider implements SmsProviderInterface
 
     /**
      * Get the provider name.
-     *
-     * @return string
      */
     public function getName(): string
     {

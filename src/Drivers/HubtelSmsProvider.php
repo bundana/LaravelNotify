@@ -2,29 +2,24 @@
 
 namespace Bundana\LaravelSmsNotify\Drivers;
 
-use GuzzleHttp\Client;
 use Bundana\LaravelSmsNotify\Contracts\SmsProviderInterface;
+use GuzzleHttp\Client;
 
 class HubtelSmsProvider implements SmsProviderInterface
 {
     /**
      * The HTTP client instance.
-     *
-     * @var Client
      */
     protected Client $client;
 
     /**
      * The provider configuration.
-     *
-     * @var array
      */
     protected array $config;
 
     /**
      * Create a new Hubtel SMS provider instance.
      *
-     * @param array $config
      * @return void
      */
     public function __construct(array $config)
@@ -41,11 +36,6 @@ class HubtelSmsProvider implements SmsProviderInterface
 
     /**
      * Send the SMS message.
-     *
-     * @param string $to
-     * @param string $message
-     * @param string|null $from
-     * @return array
      */
     public function send(string $to, string $message, ?string $from = null): array
     {
@@ -63,8 +53,6 @@ class HubtelSmsProvider implements SmsProviderInterface
 
     /**
      * Get the provider name.
-     *
-     * @return string
      */
     public function getName(): string
     {

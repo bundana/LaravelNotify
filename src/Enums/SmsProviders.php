@@ -1,4 +1,5 @@
 <?php
+
 namespace Bundana\LaravelSmsNotify\Enums;
 
 enum SmsProviders: string

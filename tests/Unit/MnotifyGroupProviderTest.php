@@ -10,10 +10,10 @@ beforeEach(function () {
     $this->config = [
         'api_key' => '0WCbuaXMvcJibCMCniFufvKYK',
         'base_url' => 'https://api.mnotify.com/api/',
-        'sender_id' => 'Pollvite'
+        'sender_id' => 'Pollvite',
     ];
 
-    $this->mockHandler = new MockHandler();
+    $this->mockHandler = new MockHandler;
     $handlerStack = HandlerStack::create($this->mockHandler);
     $client = new Client(['handler' => $handlerStack]);
 
@@ -29,8 +29,8 @@ test('it can create a group', function () {
             'message' => 'Group created successfully',
             'data' => [
                 'id' => '123456789',
-                'name' => 'VIP Customers'
-            ]
+                'name' => 'VIP Customers',
+            ],
         ]))
     );
 
@@ -56,13 +56,13 @@ test('it can get all groups', function () {
             'data' => [
                 [
                     'id' => '123456789',
-                    'name' => 'VIP Customers'
+                    'name' => 'VIP Customers',
                 ],
                 [
                     'id' => '987654321',
-                    'name' => 'Regular Customers'
-                ]
-            ]
+                    'name' => 'Regular Customers',
+                ],
+            ],
         ]))
     );
 
@@ -85,7 +85,7 @@ test('it can add contacts to a group', function () {
         new Response(200, [], json_encode([
             'status' => 'success',
             'code' => 2000,
-            'message' => 'Contacts added successfully'
+            'message' => 'Contacts added successfully',
         ]))
     );
 
@@ -99,7 +99,7 @@ test('it can remove contacts from a group', function () {
         new Response(200, [], json_encode([
             'status' => 'success',
             'code' => 2000,
-            'message' => 'Contacts removed successfully'
+            'message' => 'Contacts removed successfully',
         ]))
     );
 
@@ -116,8 +116,8 @@ test('it can get group contacts', function () {
             'message' => 'Group contacts retrieved successfully',
             'data' => [
                 '0542345921',
-                '0542345922'
-            ]
+                '0542345922',
+            ],
         ]))
     );
 

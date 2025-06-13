@@ -13,7 +13,7 @@ beforeEach(function () {
         'sender_id' => 'Pollvite',
     ];
 
-    $this->mockHandler = new MockHandler();
+    $this->mockHandler = new MockHandler;
     $handlerStack = HandlerStack::create($this->mockHandler);
     $client = new Client(['handler' => $handlerStack]);
 
@@ -32,7 +32,7 @@ test('it can send quick sms', function () {
                 'message_id' => '123456789',
                 'recipient' => '0542345921',
                 'sender' => 'TEST_SENDER',
-            ]
+            ],
         ]))
     );
 
@@ -65,7 +65,7 @@ test('it can send quick sms with custom sender', function () {
                 'message_id' => '123456789',
                 'recipient' => '0542345921',
                 'sender' => 'CUSTOM_SENDER',
-            ]
+            ],
         ]))
     );
 
@@ -90,7 +90,7 @@ test('it handles api error response', function () {
             'status' => 'error',
             'code' => 4000,
             'message' => 'Invalid phone number',
-            'data' => null
+            'data' => null,
         ]))
     );
 
@@ -114,7 +114,7 @@ test('it handles network error', function () {
             'status' => 'error',
             'code' => 5000,
             'message' => 'Internal server error',
-            'data' => null
+            'data' => null,
         ]))
     );
 
@@ -129,4 +129,4 @@ test('it handles network error', function () {
         ->toHaveKey('code', 5000)
         ->toHaveKey('message', 'Internal server error')
         ->toHaveKey('data', null);
-}); 
+});

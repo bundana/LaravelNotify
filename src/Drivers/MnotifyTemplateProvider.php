@@ -8,22 +8,17 @@ class MnotifyTemplateProvider
 {
     /**
      * The HTTP client instance.
-     *
-     * @var Client
      */
     protected Client $client;
 
     /**
      * The provider configuration.
-     *
-     * @var array
      */
     protected array $config;
 
     /**
      * Create a new Mnotify Template provider instance.
      *
-     * @param array $config
      * @return void
      */
     public function __construct(array $config)
@@ -39,22 +34,19 @@ class MnotifyTemplateProvider
 
     /**
      * Set the HTTP client instance.
-     *
-     * @param Client $client
-     * @return self
      */
     public function setClient(Client $client): self
     {
         $this->client = $client;
+
         return $this;
     }
 
     /**
      * Create a new message template
-     * 
-     * @param string $name Template name
-     * @param string $content Template content
-     * @return array
+     *
+     * @param  string  $name  Template name
+     * @param  string  $content  Template content
      */
     public function createTemplate(string $name, string $content): array
     {
@@ -71,8 +63,6 @@ class MnotifyTemplateProvider
 
     /**
      * Get all message templates
-     * 
-     * @return array
      */
     public function getTemplates(): array
     {
@@ -87,9 +77,6 @@ class MnotifyTemplateProvider
 
     /**
      * Get a specific template by ID
-     * 
-     * @param string $templateId
-     * @return array
      */
     public function getTemplate(string $templateId): array
     {
@@ -104,11 +91,6 @@ class MnotifyTemplateProvider
 
     /**
      * Update an existing template
-     * 
-     * @param string $templateId
-     * @param string $name
-     * @param string $content
-     * @return self
      */
     public function updateTemplate(string $templateId, string $name, string $content): self
     {
@@ -125,9 +107,6 @@ class MnotifyTemplateProvider
 
     /**
      * Delete a template
-     * 
-     * @param string $templateId
-     * @return self
      */
     public function deleteTemplate(string $templateId): self
     {

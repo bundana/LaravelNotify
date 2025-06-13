@@ -8,22 +8,17 @@ class MnotifyReportProvider
 {
     /**
      * The HTTP client instance.
-     *
-     * @var Client
      */
     protected Client $client;
 
     /**
      * The provider configuration.
-     *
-     * @var array
      */
     protected array $config;
 
     /**
      * Create a new Mnotify Report provider instance.
      *
-     * @param array $config
      * @return void
      */
     public function __construct(array $config)
@@ -40,8 +35,6 @@ class MnotifyReportProvider
     /**
      * Get SMS Balance
      * This endpoint retrieves your SMS credit balance and bonus
-     * 
-     * @return array
      */
     public function getBalance(): array
     {
@@ -57,9 +50,6 @@ class MnotifyReportProvider
     /**
      * Get Campaign Delivery Report
      * This endpoint retrieves the delivery status of your SMS messages for a specific campaign
-     * 
-     * @param string $campaignId
-     * @return array
      */
     public function getCampaignReport(string $campaignId): array
     {
@@ -75,9 +65,6 @@ class MnotifyReportProvider
     /**
      * Get Specific SMS Delivery Report
      * This endpoint retrieves delivery report for a specific SMS sent with the id as parameter
-     * 
-     * @param string $messageId
-     * @return array
      */
     public function getMessageReport(string $messageId): array
     {
@@ -93,9 +80,8 @@ class MnotifyReportProvider
     /**
      * Get SMS Delivery Reports
      * This endpoint retrieves delivery reports for all SMS messages
-     * 
-     * @param array $filters Optional filters for the report
-     * @return array
+     *
+     * @param  array  $filters  Optional filters for the report
      */
     public function getDeliveryReports(array $filters = []): array
     {
@@ -111,9 +97,8 @@ class MnotifyReportProvider
     /**
      * Get SMS Summary Report
      * This endpoint retrieves a summary of SMS messages sent
-     * 
-     * @param array $filters Optional filters for the report
-     * @return array
+     *
+     * @param  array  $filters  Optional filters for the report
      */
     public function getSummaryReport(array $filters = []): array
     {

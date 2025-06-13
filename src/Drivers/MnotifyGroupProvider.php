@@ -8,22 +8,17 @@ class MnotifyGroupProvider
 {
     /**
      * The HTTP client instance.
-     *
-     * @var Client
      */
     protected Client $client;
 
     /**
      * The provider configuration.
-     *
-     * @var array
      */
     protected array $config;
 
     /**
      * Create a new Mnotify Group provider instance.
      *
-     * @param array $config
      * @return void
      */
     public function __construct(array $config)
@@ -39,21 +34,18 @@ class MnotifyGroupProvider
 
     /**
      * Set the HTTP client instance.
-     *
-     * @param Client $client
-     * @return self
      */
     public function setClient(Client $client): self
     {
         $this->client = $client;
+
         return $this;
     }
 
     /**
      * Create a new group
-     * 
-     * @param string $name Group name
-     * @return array
+     *
+     * @param  string  $name  Group name
      */
     public function createGroup(string $name): array
     {
@@ -69,8 +61,6 @@ class MnotifyGroupProvider
 
     /**
      * Get all groups
-     * 
-     * @return array
      */
     public function getGroups(): array
     {
@@ -85,9 +75,6 @@ class MnotifyGroupProvider
 
     /**
      * Get a specific group by ID
-     * 
-     * @param string $groupId
-     * @return array
      */
     public function getGroup(string $groupId): array
     {
@@ -102,10 +89,6 @@ class MnotifyGroupProvider
 
     /**
      * Update a group
-     * 
-     * @param string $groupId
-     * @param string $name
-     * @return self
      */
     public function updateGroup(string $groupId, string $name): self
     {
@@ -121,9 +104,6 @@ class MnotifyGroupProvider
 
     /**
      * Delete a group
-     * 
-     * @param string $groupId
-     * @return self
      */
     public function deleteGroup(string $groupId): self
     {
@@ -138,10 +118,8 @@ class MnotifyGroupProvider
 
     /**
      * Add contacts to a group
-     * 
-     * @param string $groupId
-     * @param array $contacts Array of contact numbers
-     * @return self
+     *
+     * @param  array  $contacts  Array of contact numbers
      */
     public function addContactsToGroup(string $groupId, array $contacts): self
     {
@@ -157,10 +135,8 @@ class MnotifyGroupProvider
 
     /**
      * Remove contacts from a group
-     * 
-     * @param string $groupId
-     * @param array $contacts Array of contact numbers
-     * @return self
+     *
+     * @param  array  $contacts  Array of contact numbers
      */
     public function removeContactsFromGroup(string $groupId, array $contacts): self
     {
@@ -176,9 +152,6 @@ class MnotifyGroupProvider
 
     /**
      * Get all contacts in a group
-     * 
-     * @param string $groupId
-     * @return array
      */
     public function getGroupContacts(string $groupId): array
     {

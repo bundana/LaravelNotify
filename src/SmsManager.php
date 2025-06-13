@@ -2,18 +2,16 @@
 
 namespace Bundana\LaravelSmsNotify;
 
-use Illuminate\Support\Manager;
 use Bundana\LaravelSmsNotify\Contracts\SmsProviderInterface;
-use Bundana\LaravelSmsNotify\Drivers\MnotifySmsProvider;
 use Bundana\LaravelSmsNotify\Drivers\HubtelSmsProvider;
+use Bundana\LaravelSmsNotify\Drivers\MnotifySmsProvider;
 use Bundana\LaravelSmsNotify\Drivers\NaloSmsProvider;
+use Illuminate\Support\Manager;
 
 class SmsManager extends Manager
 {
     /**
      * Get the default driver name.
-     *
-     * @return string
      */
     public function getDefaultDriver(): string
     {
@@ -22,8 +20,6 @@ class SmsManager extends Manager
 
     /**
      * Create an instance of the Mnotify SMS driver.
-     *
-     * @return MnotifySmsProvider
      */
     protected function createMnotifyDriver(): MnotifySmsProvider
     {
@@ -34,8 +30,6 @@ class SmsManager extends Manager
 
     /**
      * Create an instance of the Hubtel SMS driver.
-     *
-     * @return HubtelSmsProvider
      */
     protected function createHubtelDriver(): HubtelSmsProvider
     {
@@ -46,8 +40,6 @@ class SmsManager extends Manager
 
     /**
      * Create an instance of the Nalo SMS driver.
-     *
-     * @return NaloSmsProvider
      */
     protected function createNaloDriver(): NaloSmsProvider
     {
@@ -59,8 +51,7 @@ class SmsManager extends Manager
     /**
      * Get a driver instance.
      *
-     * @param string|null $driver
-     * @return SmsProviderInterface
+     * @param  string|null  $driver
      */
     public function driver($driver = null): SmsProviderInterface
     {
