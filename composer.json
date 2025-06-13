@@ -1,6 +1,6 @@
 {
     "name": "bundana/laravel-sms-notify",
-    "description": "A Laravel package for sending SMS notifications using various providers",
+    "description": "A flexible and powerful SMS notification package for Laravel applications",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -10,26 +10,26 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Bundana\\LaravelSmsNotify\\Tests\\": "tests/"
         }
     },
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "guzzlehttp/guzzle": "^7.0",
-        "illuminate/bus": "^12.18",
-        "illuminate/container": "^12.18",
-        "illuminate/http": "^12.18",
-        "illuminate/queue": "^12.18"
+        "illuminate/support": "^10.0"
     },
     "require-dev": {
-        "pestphp/pest": "^2.0"
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-phpunit": "^2.0"
     },
-    "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bundana\\LaravelSmsNotify\\LaravelSmsNotifyServiceProvider"
+            ]
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "version": "1.0.0-beta.1"
 }
